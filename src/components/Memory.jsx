@@ -1,85 +1,48 @@
-import { useParams, useNavigate } from "react-router-dom";
+// src/pages/Memory.jsx
+import PageWrapper from "../components/PageWrapper";
 import { motion } from "framer-motion";
 
 export default function Memory() {
-  const { id } = useParams();
-  const navigate = useNavigate();
-
-  const memories = [
-    {
-      title: "The Beginning 💫",
-      description: "It all started with a moment that changed everything.",
-      image: "https://via.placeholder.com/400",
-    },
-    {
-      title: "Growing Together 🌱",
-      description: "We learned, laughed, and grew stronger together.",
-      image: "https://via.placeholder.com/400",
-    },
-    {
-      title: "Stronger 💪",
-      description: "Every challenge made us stronger.",
-      image: "https://via.placeholder.com/400",
-    },
-    {
-      title: "Unbreakable 🔗",
-      description: "Nothing could break what we built.",
-      image: "https://via.placeholder.com/400",
-    },
-    {
-      title: "Memories 😄",
-      description: "So many smiles, so many memories.",
-      image: "https://via.placeholder.com/400",
-    },
-    {
-      title: "Dreams 🌙",
-      description: "We dreamed of a future together.",
-      image: "https://via.placeholder.com/400",
-    },
-    {
-      title: "Still You ❤️",
-      description: "After everything… I still choose you.",
-      image: "https://via.placeholder.com/400",
-    },
-    {
-      title: "Forever 💍",
-      description: "And now… forever begins.",
-      image: "https://via.placeholder.com/400",
-    },
-  ];
-
-  const memory = memories[id];
-
-  if (!memory) {
-    return <div className="text-white p-10">Loading...</div>;
-  }
-
   return (
-    <motion.div
-      className="min-h-screen flex flex-col justify-center items-center bg-black text-white p-6 text-center"
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-    >
-      <h1 className="text-4xl text-pink-400 font-bold">
-        {memory.title}
-      </h1>
+    <PageWrapper>
+      <div className="relative">
 
-      <img
-        src={memory.image}
-        className="mt-6 rounded-xl shadow-lg"
-        alt="memory"
-      />
+        {/* Hero Image */}
+        <img
+          src="https://images.unsplash.com/photo-1529636798458-92182e662485"
+          className="w-full h-[60vh] object-cover"
+        />
 
-      <p className="mt-6 text-gray-300 max-w-xl">
-        {memory.description}
-      </p>
+        {/* Glass Card */}
+        <div className="max-w-4xl mx-auto -mt-32 p-6 backdrop-blur-lg bg-white/10 rounded-2xl shadow-xl">
 
-      <button
-        onClick={() => navigate("/surprise")}
-        className="mt-10 px-6 py-3 bg-pink-500 rounded-full hover:scale-110 transition"
-      >
-        Continue →
-      </button>
-    </motion.div>
+          <h1 className="text-3xl font-display mb-4">
+            The Day I Knew 💖
+          </h1>
+
+          <p className="text-gray-200 leading-relaxed">
+            This was the moment everything changed...
+          </p>
+
+          {/* Gallery */}
+          <div className="grid grid-cols-2 gap-4 mt-6">
+            {[1, 2].map((i) => (
+              <motion.img
+                key={i}
+                whileHover={{ scale: 1.05 }}
+                src="https://images.unsplash.com/photo-1492724441997-5dc865305da7"
+                className="rounded-xl"
+              />
+            ))}
+          </div>
+
+          {/* Navigation */}
+          <div className="flex justify-between mt-6">
+            <button className="text-gray-300">← Back</button>
+            <button className="text-primary">Next →</button>
+          </div>
+        </div>
+      </div>
+    </PageWrapper>
   );
 }

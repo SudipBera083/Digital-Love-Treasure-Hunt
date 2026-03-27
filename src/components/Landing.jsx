@@ -1,33 +1,63 @@
-import { useNavigate } from "react-router-dom";
+// src/pages/Landing.jsx
 import { motion } from "framer-motion";
+import PageWrapper from "../components/PageWrapper";
 
 export default function Landing() {
-  const navigate = useNavigate();
-
   return (
-    <div className="h-screen flex flex-col justify-center items-center bg-gradient-to-br from-black via-purple-900 to-black text-white relative overflow-hidden">
+    <PageWrapper>
+      <div className="relative h-screen w-full overflow-hidden">
 
-      <div className="absolute w-[500px] h-[500px] bg-pink-500 opacity-20 blur-3xl rounded-full"></div>
+        {/* Background */}
+        <img
+          src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e"
+          className="absolute w-full h-full object-cover"
+        />
 
-      <motion.h1
-        initial={{ opacity: 0, y: -50 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 1 }}
-        className="text-6xl font-extrabold"
-      >
-        Forever 7 💖
-      </motion.h1>
+        {/* Overlay */}
+        <div className="absolute inset-0 bg-romantic-gradient backdrop-blur-sm" />
 
-      <p className="mt-4 text-gray-300">
-        01 April 2019 → 01 April 2026
-      </p>
+        {/* Content */}
+        <div className="relative z-10 flex flex-col justify-center items-center h-full text-center px-4">
 
-      <button
-        onClick={() => navigate("/timeline")}
-        className="mt-10 px-8 py-3 bg-gradient-to-r from-pink-500 to-purple-600 rounded-full hover:scale-110 transition"
-      >
-        Start Our Journey →
-      </button>
-    </div>
+          <motion.h1
+            initial={{ opacity: 0, y: 40 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1 }}
+            className="text-5xl md:text-7xl font-display text-white drop-shadow-lg"
+          >
+            Forever 7
+          </motion.h1>
+
+          <motion.p
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 1 }}
+            className="mt-4 text-lg md:text-xl text-gray-200"
+          >
+            01 April 2019 → 01 April 2026
+          </motion.p>
+
+          {/* CTA */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 1.5 }}
+            className="mt-10"
+          >
+            <a
+              href="/timeline"
+              className="px-6 py-3 bg-primary rounded-full text-white shadow-lg hover:scale-110 transition"
+            >
+              Begin Our Story
+            </a>
+          </motion.div>
+        </div>
+
+        {/* Scroll Indicator */}
+        <div className="absolute bottom-10 w-full flex justify-center">
+          <div className="animate-bounce text-white">↓</div>
+        </div>
+      </div>
+    </PageWrapper>
   );
 }
