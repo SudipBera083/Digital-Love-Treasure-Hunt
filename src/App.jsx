@@ -1,28 +1,20 @@
-import { useState } from 'react'
-import Timeline from './components/Timeline'
-import Landing from './components/Landing'
-import Surprise from './components/Surprise'
-import Memory from './components/Memory'
-import './App.css'
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Landing from "./components/Landing";
+import Timeline from "./components/Timeline";
+import Memory from "./components/Memory";
+import Surprise from "./components/Surprise";
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
-    <div className="App">
-      <Landing />
-      <Timeline />
-      <Surprise />
-      <Memory 
-  memory={{
-    title: "My Memory 💖",
-    image: "https://via.placeholder.com/400",
-    description: "Our beautiful journey started here..."
-  }}
-/>
-    </div>
-
-  )
+    <Router>
+      <Routes>
+        <Route path="/" element={<Landing />} />
+        <Route path="/timeline" element={<Timeline />} />
+        <Route path="/memory/:id" element={<Memory />} />
+        <Route path="/surprise" element={<Surprise />} />
+      </Routes>
+    </Router>
+  );
 }
 
-export default App
+export default App;
