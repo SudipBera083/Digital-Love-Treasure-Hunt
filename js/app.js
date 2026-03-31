@@ -52,13 +52,6 @@ function typeWriter() {
 
 // 📤 SHARE
 function shareLove() {
-  if (navigator.share) {
-    navigator.share({
-      title: "Our Love Story ❤️",
-      text: "Check this out!",
-      url: window.location.href
-    });
-  } else {
-    alert("Copy link: " + window.location.href);
-  }
+//   migrating to memories page
+  window.location.href = "memories.html";
 }
