@@ -1,13 +1,157 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>core</title>
-  </head>
-  <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.jsx"></script>
-  </body>
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <title>Happy Anniversary :: Srijita & Sudip</title>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Poppins:wght@300;500&display=swap" rel="stylesheet">
+
+  <!-- Bootstrap -->
+  <link
+    rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"
+  />
+
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background: #000;
+      color: white;
+      overflow-x: hidden;
+    }
+
+    /* HERO CAROUSEL */
+    .carousel-item {
+      height: 100vh;
+      min-height: 400px;
+      position: relative;
+    }
+
+    .carousel-item img {
+      height: 100%;
+      object-fit: cover;
+      filter: brightness(60%);
+      transition: transform 6s ease;
+    }
+
+    .carousel-item.active img {
+      transform: scale(1.1);
+    }
+
+    /* OVERLAY TEXT */
+    .carousel-caption {
+      bottom: 35%;
+      text-shadow: 0px 0px 20px rgba(255, 105, 180, 0.8);
+    }
+
+    .carousel-caption h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 3.5rem;
+      animation: fadeInUp 1.5s ease;
+    }
+
+    .carousel-caption p {
+      font-size: 1.2rem;
+      animation: fadeInUp 2s ease;
+    }
+
+    /* ANIMATION */
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* HEART GLOW */
+    .heart {
+      color: #ff4d6d;
+      font-size: 2rem;
+      animation: pulse 1.5s infinite;
+    }
+
+    @keyframes pulse {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.2); }
+      100% { transform: scale(1); }
+    }
+
+    /* FOOTER */
+    footer {
+      background: linear-gradient(45deg, #111, #222);
+      padding: 20px 0;
+      font-size: 0.9rem;
+      letter-spacing: 1px;
+    }
+  </style>
+</head>
+
+<body>
+
+<!-- HERO CAROUSEL -->
+<div id="carouselExampleIndicators" class="carousel slide carousel-fade" data-ride="carousel">
+
+  <div class="carousel-inner">
+
+    <div class="carousel-item active">
+      <img src="./src/img/new.jpg" class="d-block w-100">
+      <div class="carousel-caption">
+        <h1>Srijita ❤️ Sudip</h1>
+        <p>Every love story is beautiful, but ours is my favorite.</p>
+      </div>
+    </div>
+
+    <div class="carousel-item">
+      <img src="./src/img/about.jpg" class="d-block w-100">
+      <div class="carousel-caption">
+        <h1>Our Journey</h1>
+        <p>From strangers to soulmates — a timeless bond.</p>
+      </div>
+    </div>
+
+    <div class="carousel-item">
+      <img src="./src/img/g6.jpg" class="d-block w-100">
+      <div class="carousel-caption">
+        <h1>Forever Together</h1>
+        <p>Cheers to love, laughter, and a lifetime ahead.</p>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Controls -->
+  <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+    <span class="carousel-control-prev-icon"></span>
+  </a>
+
+  <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+    <span class="carousel-control-next-icon"></span>
+  </a>
+
+</div>
+
+<!-- FOOTER -->
+<footer class="text-center">
+  <div class="container">
+    <p>
+      Made with <span class="heart">❤️</span> by Sudip  
+      <br />
+      &copy; 2026 Srijita & Sudip
+    </p>
+  </div>
+</footer>
+
+<!-- Scripts -->
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
 </html>
